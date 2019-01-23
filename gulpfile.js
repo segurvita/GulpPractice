@@ -4,18 +4,21 @@ var gulp = require("gulp");
 var sass = require("gulp-sass");
 
 // style.scssの監視タスクを作成する
-gulp.task("default", function () {
+gulp.task("default", function() {
   // scssファイルを監視
-  gulp.watch("sass/**/*.scss", function () {
+  gulp.watch("sass/**/*.scss", function() {
     // scssファイルを取得
-    gulp.src("sass/**/*.scss")
+    gulp
+      .src("sass/**/*.scss")
       // Sassのコンパイルを実行
-      .pipe(sass({
-        outputStyle: 'expanded'
-      }))
+      .pipe(
+        sass({
+          outputStyle: "expanded"
+        })
+      )
       // コンパイルエラーを表示
-      .on('error', sass.logError)
+      .on("error", sass.logError)
       // cssフォルダーに保存
-      .pipe(gulp.dest("./css"))
+      .pipe(gulp.dest("./css"));
   });
-})
+});
