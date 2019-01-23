@@ -2,11 +2,13 @@
 var gulp = require("gulp");
 // Sassをコンパイルするプラグインの読み込み
 var sass = require("gulp-sass");
+// watchの強化版
+var watch = require("gulp-watch");
 
 // style.scssの監視タスクを作成する
 gulp.task("sass", function() {
   // scssファイルを監視
-  gulp.watch("sass/**/*.scss", function() {
+  return watch("sass/**/*.scss", function() {
     // scssファイルを取得
     gulp
       .src("sass/**/*.scss")
