@@ -13,6 +13,8 @@ gulp.task("default", function () {
       .pipe(sass({
         outputStyle: 'expanded'
       }))
+      // コンパイルエラーを表示
+      .on('error', sass.logError)
       // cssフォルダーに保存
       .pipe(gulp.dest("./css"))
   });
