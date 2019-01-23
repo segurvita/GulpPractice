@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/segurvita/gulp-practice/issues"
   },
-  "homepage": "https://github.com/segurvita/gulp-practice#readme"
+  "homepage": "https://github.com/segurvita/gulp-practice#readme",
+  "devDependencies": {
+    "gulp": "^4.0.0"
+  }
 }
