@@ -25,5 +25,20 @@ gulp.task("scss", function() {
   });
 });
 
+// yamlの監視タスクを作成する
+gulp.task("yaml", function() {
+  // yamlファイルを監視
+  return watch("yaml/swagger.yaml", function() {
+    gulp
+      // yamlファイルを取得
+      .src("yaml/swagger.yaml")
+      // ymlフォルダーに保存
+      .pipe(gulp.dest("./yml"));
+  });
+});
+
 // デフォルトのタスクに他のタスクを登録
-gulp.task("default", gulp.series(gulp.parallel("scss")));
+gulp.task("default", gulp.series(gulp.parallel(
+  "scss",
+  "yaml"
+)));
