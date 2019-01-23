@@ -4,11 +4,12 @@ var gulp = require("gulp");
 var sass = require("gulp-sass");
 // watchの強化版
 var watch = require("gulp-watch");
+// 独自ファンクション
+var myYaml = require("./my-yaml");
 
-// style.scssの監視タスクを作成する
-gulp.task("scss", function() {
-  // scssファイルを監視
-  return watch("scss/**/*.scss", function() {
+// scssの監視タスクを作成する
+gulp.task("scss", () => {
+  return watch("scss/**/*.scss", () => 
     // scssファイルを取得
     gulp
       .src("scss/**/*.scss")
@@ -21,9 +22,25 @@ gulp.task("scss", function() {
       // コンパイルエラーを表示
       .on("error", sass.logError)
       // cssフォルダーに保存
-      .pipe(gulp.dest("./css"));
-  });
+      .pipe(gulp.dest("./css"))
+  )
+});
+
+// yamlの監視タスクを作成する
+gulp.task("yaml", () => {
+  return watch("yaml/swagger.yaml", () =>
+    gulp
+      // yamlファイルを取得
+      .src("yaml/swagger.yaml")
+      // 独自ファンクション
+      .pipe(myYaml())
+      // ymlフォルダーに保存
+      .pipe(gulp.dest("./yml"))
+  )
 });
 
 // デフォルトのタスクに他のタスクを登録
-gulp.task("default", gulp.series(gulp.parallel("scss")));
+gulp.task("default", gulp.series(gulp.parallel(
+  "scss",
+  "yaml"
+)));
