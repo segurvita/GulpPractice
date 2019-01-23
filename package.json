@@ -1,0 +1,19 @@
+{
+  "name": "gulp-practice",
+  "version": "0.0.1",
+  "description": "This project is a practice of gulp",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/segurvita/gulp-practice.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/segurvita/gulp-practice/issues"
+  },
+  "homepage": "https://github.com/segurvita/gulp-practice#readme"
+}
