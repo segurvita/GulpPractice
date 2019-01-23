@@ -6,12 +6,12 @@ var sass = require("gulp-sass");
 var watch = require("gulp-watch");
 
 // style.scssの監視タスクを作成する
-gulp.task("sass", function() {
+gulp.task("scss", function() {
   // scssファイルを監視
-  return watch("sass/**/*.scss", function() {
+  return watch("scss/**/*.scss", function() {
     // scssファイルを取得
     gulp
-      .src("sass/**/*.scss")
+      .src("scss/**/*.scss")
       // Sassのコンパイルを実行
       .pipe(
         sass({
@@ -26,4 +26,4 @@ gulp.task("sass", function() {
 });
 
 // デフォルトのタスクに他のタスクを登録
-gulp.task("default", gulp.series(gulp.parallel("sass")));
+gulp.task("default", gulp.series(gulp.parallel("scss")));
