@@ -1,5 +1,9 @@
 .tableHead {
   background-color: #222;
   color: #eee;
-  font-size: 12px;
+  font-size: 18px;
+}
+
+.tableHead .tableRow {
+  border-width: 1px;
 }
