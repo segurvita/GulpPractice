@@ -1,0 +1,2 @@
+# GulpPractice
+Practice of gulp
