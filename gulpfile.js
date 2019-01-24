@@ -6,6 +6,8 @@ var sass = require("gulp-sass");
 var watch = require("gulp-watch");
 // 独自ファンクション
 var myYaml = require("./my-yaml");
+// yamlをマージする
+var yamlMerge = require('gulp-yaml-merge');
 
 // scssの監視タスクを作成する
 gulp.task("scss", () => {
@@ -39,8 +41,22 @@ gulp.task("yaml", () => {
   )
 });
 
+// yamlの監視タスクを作成する
+gulp.task("yaml-merged", () => {
+  return watch("yaml/**/*.yaml", () =>
+    gulp
+      // yamlファイルを取得
+      .src("yaml/**/*.yaml")
+      // 独自ファンクション
+      .pipe(yamlMerge('bundle.yml'))
+      // ymlフォルダーに保存
+      .pipe(gulp.dest("./yaml-merged"))
+  )
+});
+
 // デフォルトのタスクに他のタスクを登録
 gulp.task("default", gulp.series(gulp.parallel(
   "scss",
-  "yaml"
+  "yaml",
+  "yaml-merged"
 )));
