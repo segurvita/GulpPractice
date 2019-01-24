@@ -28,10 +28,10 @@ gulp.task("scss", () => {
 
 // yamlの監視タスクを作成する
 gulp.task("yaml", () => {
-  return watch("yaml/swagger.yaml", () =>
+  return watch("yaml/**/*.yaml", () =>
     gulp
       // yamlファイルを取得
-      .src("yaml/swagger.yaml")
+      .src("yaml/**/*.yaml")
       // 独自ファンクション
       .pipe(myYaml())
       // ymlフォルダーに保存
