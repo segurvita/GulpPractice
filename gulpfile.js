@@ -29,19 +29,6 @@ gulp.task("scss", () => {
 });
 
 // yamlの監視タスクを作成する
-// gulp.task("yaml", () => {
-//   return watch("yaml/**/*.yaml", () =>
-//     gulp
-//       // yamlファイルを取得
-//       .src("yaml/**/*.yaml")
-//       // 独自ファンクション
-//       .pipe(myYaml())
-//       // ymlフォルダーに保存
-//       .pipe(gulp.dest("./yml"))
-//   )
-// });
-
-// yamlの監視タスクを作成する
 gulp.task("swagger-components", () => {
   return watch("swagger-components/**/*.yaml", () =>
     gulp
