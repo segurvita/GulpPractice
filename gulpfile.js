@@ -41,8 +41,22 @@ gulp.task("swagger-components", () => {
   )
 });
 
+// swagger-mergedの監視タスクを作成する
+gulp.task("swagger-merged", () => {
+  return watch("swagger-merged/swagger.yml", () =>
+    gulp
+      // yamlファイルを取得
+      .src("swagger-merged/swagger.yml")
+      // 独自ファンクション
+      .pipe(myYaml())
+      // ymlフォルダーに保存
+      .pipe(gulp.dest("./swagger-edited"))
+  )
+});
+
 // デフォルトのタスクに他のタスクを登録
 gulp.task("default", gulp.series(gulp.parallel(
   "scss",
-  "swagger-components"
+  "swagger-components",
+  "swagger-merged"
 )));
