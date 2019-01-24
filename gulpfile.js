@@ -42,21 +42,20 @@ gulp.task("scss", () => {
 // });
 
 // yamlの監視タスクを作成する
-gulp.task("yaml-merged", () => {
-  return watch("yaml/**/*.yaml", () =>
+gulp.task("swagger-components", () => {
+  return watch("swagger-components/**/*.yaml", () =>
     gulp
       // yamlファイルを取得
-      .src("yaml/**/*.yaml")
+      .src("swagger-components/**/*.yaml")
       // 独自ファンクション
-      .pipe(yamlMerge('bundle.yml'))
+      .pipe(yamlMerge('swagger.yml'))
       // ymlフォルダーに保存
-      .pipe(gulp.dest("./yaml-merged"))
+      .pipe(gulp.dest("./swagger-merged"))
   )
 });
 
 // デフォルトのタスクに他のタスクを登録
 gulp.task("default", gulp.series(gulp.parallel(
   "scss",
-  "yaml",
-  "yaml-merged"
+  "swagger-components"
 )));
