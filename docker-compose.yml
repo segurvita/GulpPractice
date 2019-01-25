@@ -7,6 +7,7 @@ services:
     build: ./gulp
     # マウントするフォルダ
     volumes:
+      - ./css:/my_gulp/css
       - ./scss:/my_gulp/scss
       - ./swagger-components:/my_gulp/swagger-components
       - ./swagger-edited:/my_gulp/swagger-edited
