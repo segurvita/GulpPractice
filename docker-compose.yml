@@ -14,3 +14,5 @@ services:
       - ./swagger-merged:/my_gulp/swagger-merged
       - ./gulp/package.json:/my_gulp/package.json
       - ./gulp/gulpfile.js:/my_gulp/gulpfile.js
+      - ./gulp/my-yaml:/my_gulp/my-yaml
+      
