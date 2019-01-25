@@ -24,7 +24,5 @@ paths:
               id:
                 type: integer
                 format: int64
-                example: 404
               comment:
                 type: string
-                example: 404号室です。どこにも存在しない部屋かも。
