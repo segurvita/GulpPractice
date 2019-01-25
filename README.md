@@ -6,7 +6,7 @@ Practice of gulp on docker.
 # How to start?
 
 ```bash
-# build containerd
+# build container
 docker-compose build
 
 # start to watch folders
