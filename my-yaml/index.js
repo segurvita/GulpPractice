@@ -37,7 +37,7 @@ module.exports = () =>
           base: file.base,
           cwd: file.cwd,
           path: gutil.replaceExtension(file.path, ".yml"),
-          contents: new Buffer(strRmExample, "utf8")
+          contents: Buffer.from(strRmExample, "utf8")
         })
       );
       return;
